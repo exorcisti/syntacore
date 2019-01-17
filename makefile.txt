@@ -1,0 +1,13 @@
+all: syntacore
+
+syntacore: BRAIN.o MAIN.o
+	g++ -o syntacore BRAIN.o MAIN.o
+
+BRAIN.o: BRAIN.cpp POSTFIX.h
+	g++ -c BRAIN.cpp -o BRAIN.o
+
+MAIN.o: MAIN.cpp
+	g++ -c MAIN.cpp -o MAIN.o
+
+clean:
+	rm -rf *.o syntacore
